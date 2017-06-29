@@ -7,8 +7,8 @@ const Dog = require('../model/dog.js');
 
 const dogRouter = module.exports = new Router();
 
-dogRouter.post('/api/dogs', (req, res, next) => {
-  new Dog (req.body)
+dogRouter.post('/api/dogs', jsonParser, (req, res, next) => {
+  new Dog(req.body)
     .save()
     .then((dog) => res.json(dog))
     .catch(next);
@@ -20,7 +20,7 @@ dogRouter.get('api/dogs/:id', (req, res, next) => {
     .catch(next);
 });
 
-dogRouter.put('/api/dogs/:id', (req, res, next) => {
+dogRouter.put('/api/dogs/:id', jsonParser, (req, res, next) => {
   let options = {
     new: true,
     runValidators: true,
