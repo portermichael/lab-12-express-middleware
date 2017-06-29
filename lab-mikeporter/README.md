@@ -13,7 +13,7 @@ Tests can be performed after installing developer dependencies with npm i -D and
 Our base object is a dog. This dog requires a breed, age and name properties.
 
 #post
-The post request requires a body including a breed as a string, a colnameor as a string and a age as a number to /api/dogs. The response includes a 200 status and the properties of the object created in the body including \_id, breed, name and age.
+The post request requires a body including a breed as a string, a name as a string and a age as a number to /api/dogs. The response includes a 200 status and the properties of the object created in the body including \_id, breed, name and age.
 
 Sending partial dog properties or no dog properties results in a 400 status.
 
