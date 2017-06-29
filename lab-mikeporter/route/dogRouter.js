@@ -14,7 +14,7 @@ dogRouter.post('/api/dogs', jsonParser, (req, res, next) => {
     .catch(next);
 });
 
-dogRouter.get('api/dogs/:id', (req, res, next) => {
+dogRouter.get('/api/dogs/:id', (req, res, next) => {
   Dog.findById(req.params.id)
     .then((dog) => res.json(dog))
     .catch(next);
@@ -30,7 +30,7 @@ dogRouter.put('/api/dogs/:id', jsonParser, (req, res, next) => {
     .catch(next);
 });
 
-dogRouter.delete('/api/dogs:id', (req, res, next) => {
+dogRouter.delete('/api/dogs/:id', (req, res, next) => {
   Dog.findByIdAndRemove(req.params.id)
     .then(() => res.sendStatus(204))
     .catch(next);

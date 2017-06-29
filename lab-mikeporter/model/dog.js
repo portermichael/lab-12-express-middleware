@@ -8,4 +8,4 @@ const dogSchema = mongoose.Schema({
   breed: {type: String, required: true},
 });
 
-const Dog = module.exports = mongoose.model('dog', dogSchema);
+module.exports = mongoose.model('dog', dogSchema);
