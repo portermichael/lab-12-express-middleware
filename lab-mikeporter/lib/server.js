@@ -18,8 +18,6 @@ app.use(require('../route/dogRouter.js'));
 
 app.use(require('./error-middleware.js'));
 
-
-
 const serverControl = module.exports = {};
 
 serverControl.start = () => {

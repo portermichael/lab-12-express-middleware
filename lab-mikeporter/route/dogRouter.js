@@ -1,7 +1,7 @@
 'use script';
 
 const {Router} = require('express');
-const jsonParser = require('body-parser').json;
+const jsonParser = require('body-parser').json();
 
 const Dog = require('../model/dog.js');
 
