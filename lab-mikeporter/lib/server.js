@@ -9,15 +9,18 @@ mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGODB_URI);
 
 const app = express();
-let server;
 
 app.use(cors());
 app.use(morgan('dev'));
 
 app.use(require('../route/dogRouter.js'));
+
 app.use(require('./error-middleware.js'));
 
+let server;
+
 const serverControl = module.exports = {};
+
 serverControl.start = () => {
   return new Promise((resolve, reject) => {
     if(!server || !server.isOn){
