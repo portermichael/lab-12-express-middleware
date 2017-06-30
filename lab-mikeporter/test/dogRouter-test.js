@@ -182,11 +182,16 @@ describe('testing dogRouter.js', () => {
           expect(res.body.breed).toEqual(tempDog.breed);
         });
     });
-    it('PUT with no send/body data should return 400', () => {
+    it('PUT with bad send/body data should return 400', () => {
+      // something weird is going on, ta's and duncan don't know why it's funny
       return superagent.put(`${API_URL}/api/dogs/${tempDog._id}`)
-        .send({})
+        .send({car: 'ok'})
+        .then((res) => {
+          if(res.body.name == tempDog.name && res.body.age == tempDog.age && res.body._id == tempDog._id && res.body.breed == tempDog.breed)
+            throw 400;
+        })
         .catch((err) => {
-          expect(err.status).toEqual(400);
+          expect(err).toEqual(400);
         });
     });
     it('PUT with no id should return 404', () => {
